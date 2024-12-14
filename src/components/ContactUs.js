@@ -121,6 +121,7 @@ const styles = {
     borderRadius: "4px",
     fontSize: "16px",
     cursor: "pointer",
+    width: "100%", // Make button full-width on smaller screens
   },
   error: {
     color: "red",
@@ -129,6 +130,26 @@ const styles = {
   success: {
     color: "green",
     marginBottom: "15px",
+  },
+
+  // Media query for responsiveness
+  "@media (max-width: 600px)": {
+    container: {
+      padding: "15px",
+    },
+    input: {
+      fontSize: "14px",
+      padding: "8px",
+    },
+    textarea: {
+      fontSize: "14px",
+      padding: "8px",
+      height: "80px",
+    },
+    button: {
+      fontSize: "14px",
+      padding: "12px 15px",
+    },
   },
 };
 

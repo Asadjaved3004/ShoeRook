@@ -77,36 +77,52 @@ const MainContent = () => {
       >
         {filteredProducts.map((product) => (
           <Card
-            key={product.id}
-            style={{
-              minWidth: "250px",
-              flexShrink: 0,
-              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <CardMedia
-              component="img"
-              alt={product.name}
-              height="140"
-              image={product.img}
-            />
-            <CardContent>
-              <Typography variant="h5" component="div">
-                {product.name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {product.price}
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                style={{ marginTop: 10 }}
-                onClick={() => handleBuyNow(product)}
-              >
-                Buy Now
-              </Button>
-            </CardContent>
-          </Card>
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            height: "100%",
+            "& img": {
+              height: { xs: 150, sm: 180 },
+            },
+            "& .MuiCardContent-root": {
+              padding: { xs: 1, sm: 2 },
+              textAlign: "center",
+            },
+          }}
+        >
+          <CardMedia
+  component="img"
+  alt={product.name}
+  image={product.img}
+  sx={{
+    height: { xs: 150, sm: 180, md: 200 },
+    objectFit: "cover",
+  }}
+/>
+          <CardContent>
+          <Typography
+  variant="h6"
+  sx={{
+    fontSize: { xs: "1rem", md: "1.25rem" },
+  }}
+>
+  {product.name}
+</Typography>
+            <Typography variant="body2" color="text.secondary">
+              {product.price}
+            </Typography>
+          <Button
+              variant="contained"
+              sx={{
+                padding: { xs: 1, md: 1.5 },
+                fontSize: { xs: "0.875rem", md: "1rem" },
+              }}
+            >
+              Buy Now
+            </Button>
+          </CardContent>
+        </Card>
         ))}
       </Box>
 

@@ -12,15 +12,25 @@ const Login = () => {
 
   return (
     <Box
-      style={{
-        maxWidth: "400px",
+      sx={{
+        maxWidth: { xs: "300px", sm: "400px" }, // Adjust maxWidth for small screens
         margin: "50px auto",
-        padding: "20px",
+        padding: { xs: "16px", sm: "20px" }, // Adjust padding for smaller screens
         boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
         borderRadius: "8px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <Typography variant="h5" style={{ marginBottom: "20px", textAlign: "center" }}>
+      <Typography
+        variant="h5"
+        sx={{
+          marginBottom: "20px",
+          textAlign: "center",
+          fontSize: { xs: "1.25rem", sm: "1.5rem" }, // Adjust font size
+        }}
+      >
         Login
       </Typography>
 
@@ -28,7 +38,10 @@ const Login = () => {
         fullWidth
         label="Email"
         variant="outlined"
-        style={{ marginBottom: "20px" }}
+        sx={{
+          marginBottom: "20px",
+          fontSize: { xs: "0.875rem", sm: "1rem" }, // Adjust font size for smaller screens
+        }}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -37,19 +50,46 @@ const Login = () => {
         label="Password"
         type="password"
         variant="outlined"
-        style={{ marginBottom: "20px" }}
+        sx={{
+          marginBottom: "20px",
+          fontSize: { xs: "0.875rem", sm: "1rem" },
+        }}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button fullWidth variant="contained" color="primary" onClick={handleLogin}>
+      <Button
+        fullWidth
+        variant="contained"
+        color="primary"
+        sx={{
+          padding: { xs: "10px", sm: "12px" }, // Adjust padding for smaller screens
+          fontSize: { xs: "0.875rem", sm: "1rem" },
+        }}
+        onClick={handleLogin}
+      >
         Login
       </Button>
 
       {/* Redirect to Sign Up Page */}
-      <Typography variant="body2" style={{ marginTop: "20px", textAlign: "center" }}>
+      <Typography
+        variant="body2"
+        sx={{
+          marginTop: "20px",
+          textAlign: "center",
+          fontSize: { xs: "0.75rem", sm: "0.875rem" }, // Smaller font size for small screens
+        }}
+      >
         <span>If you are a new user, </span>
-        <Link component={RouterLink} to="/signup" style={{ textDecoration: "none" }}>
-          <strong>Sign Up</strong>
+        <Link
+          component={RouterLink}
+          to="/signup"
+          sx={{
+            textDecoration: "none",
+            fontWeight: "bold",
+            color: "primary.main",
+          }}
+        >
+          Sign Up
         </Link>
       </Typography>
     </Box>
